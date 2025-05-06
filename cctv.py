@@ -66,13 +66,13 @@ class Cctv:
         output = bytearray()
         i = 0
         while i < len(data):
-            if i + 3 < len(data) and data[i] == 0 and data[i+1] == 0 and data[i+2] == 3 and data[i+3] == 3:
-                output.extend([0, 0, 3])
-                i += 4
+            if i + 2 < len(data) and data[i] == 0 and data[i + 1] == 0 and data[i + 2] == 3:
+                output.extend([0, 0])
+                i += 3
             else:
                 output.append(data[i])
                 i += 1
-        return bytearray(output)
+        return output
 
 
     @staticmethod
